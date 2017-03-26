@@ -11,6 +11,18 @@ Create a new firebase app and copy the config.  Then create a new droopy-firebas
 ``` javascript
 var config = { "..." : "...config from firebase portal..." }
 var db = require("droopy-firebase").create(config);
+// Add an item to the collection
+db.movies.add({ key: 123, title: "Gladiator" })
+
+// Get the item by key
+db.movies.get(123).then(movie => {
+    console.log(movie);
+})
+
+// Get all items in the collection
+db.movies.getItems().then(movies => {
+    console.log(movies);
+})
 ```
 
 ## Dynamic Collections
