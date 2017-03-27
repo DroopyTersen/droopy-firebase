@@ -19,9 +19,13 @@ db.movies.get(123).then(movie => {
     console.log(movie);
 })
 
-// Get all items in the collection
+
+// Get all items in the movies collection
 db.movies.getItems().then(movies => {
     console.log(movies);
+})
+db.actors.getItems().then(actors => {
+    console.log(actors):
 })
 ```
 
