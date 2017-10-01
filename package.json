@@ -9,6 +9,6 @@
   "author": "Andrew Petersen",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^3.7.3"
+    "firebase": "^4.4.0"
   }
 }
