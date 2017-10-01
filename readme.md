@@ -56,13 +56,27 @@ Use `update` if the item exists already an you just want to change a couple prop
 db.movies.add({ key: 567, title: "A Lot Like Love" })
 db.movies.update(567, { rating: 7.3 })
 ```
-## Realtime Events
-Event types are `child_added`, `child_changed`, `child_removed`, and `child_moved`.
 
-Subscribe to all updates to `movies` collection
+### Remove Item
 ``` javascript
-db.movies.on("child_changed", (data) => {
-    console.log(data);
+db.movies.remove(123);
+```
+
+## Realtime Events
+Event types are `add`, `update`, `remove`.
+
+Subscribe to `movies` collection changes
+``` javascript
+db.movies.on("add", (newMovie) => {
+    console.log(newMovie);
+})
+
+db.movies.on("update", (updatedMovie) => {
+    console.log(updatedMovie);
+})
+
+db.movies.on("remove", (deletedMovie) => {
+    console.log(deletedMovie);
 })
 ```
 
