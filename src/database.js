@@ -1,7 +1,7 @@
 var firebase = require("firebase");
 var Collection = require("./collection");
 
-var create = function(config) {
+var connect = function(config) {
     firebase.initializeApp(config);
     var db = firebase.database();
 
@@ -19,4 +19,4 @@ var create = function(config) {
     return collectionsProxy;
 }
 
-module.exports = { create };
+module.exports = { connect, create: connect };

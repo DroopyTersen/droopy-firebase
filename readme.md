@@ -7,10 +7,10 @@ npm install --save droopy-firebase
 ```
 
 ## Usage
-Create a new firebase app and copy the config.  Then create a new droopy-firebase db.
+Create a new firebase app and copy the config.  Then connect to the db with droopy-firebase.
 ``` javascript
 var config = { "..." : "...config from firebase portal..." }
-var db = require("droopy-firebase").create(config);
+var db = require("droopy-firebase").connect(config);
 // Add an item to the collection
 db.movies.add({ key: 123, title: "Gladiator" })
 
