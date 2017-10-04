@@ -19,7 +19,6 @@ Collection.prototype._onAdd = function(handler) {
 Collection.prototype.on = function(eventKey, handler) {
     let ref = this.db.ref().child(this.name);
     if (eventKey === "add") {
-        console.log("add handler");
         this._onAdd(handler);
     } else if (eventKey === "update") {
         ref.on("child_changed", snapshot => handler(snapshot.val()))
