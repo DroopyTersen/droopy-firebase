@@ -1,14 +1,18 @@
 {
   "name": "droopy-firebase",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Wrapper around the Firebase SDK to simplify working with collections",
-  "main": "index.js",
+  "main": "lib/database.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d lib --source-maps --presets env"
   },
   "author": "Andrew Petersen",
   "license": "MIT",
   "dependencies": {
     "firebase": "^4.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
   }
 }
