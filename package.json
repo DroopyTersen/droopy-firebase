@@ -1,6 +1,6 @@
 {
   "name": "droopy-firebase",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Wrapper around the Firebase SDK to simplify working with collections",
   "main": "lib/database.js",
   "scripts": {

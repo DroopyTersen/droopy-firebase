@@ -38,7 +38,7 @@ Collection.prototype._getItemRef = function(key) {
 Collection.prototype.set = function(obj) {
     if (!obj.key) throw new Error("You must pass object with 'key'")
     obj._timestamp = Date.now()
-    this._getItemRef(obj.key).set(obj)
+    return this._getItemRef(obj.key).set(obj)
 }
 Collection.prototype.add = Collection.prototype.set;
 
@@ -52,7 +52,7 @@ Collection.prototype.getItems = function() {
 };
 
 Collection.prototype.update = function(key, updates) {
-    this._getItemRef(key).update(updates)
+    return this._getItemRef(key).update(updates)
 };
 
 Collection.prototype.remove = function(key) {
@@ -60,10 +60,10 @@ Collection.prototype.remove = function(key) {
 };
 
 Collection.prototype.clear = function() {
-    this.db.ref().child(this.name).set({});
+    return this.db.ref().child(this.name).set({});
 };
 
 Collection.prototype.empty = function() {
-    this.clear();
+    return this.clear();
 };
 module.exports = Collection;
