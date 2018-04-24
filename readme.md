@@ -30,6 +30,19 @@ let actors = await db.actors.getItems();
 console.log(actors):
 ```
 
+## Firebase Setup
+1. Go to your [Firebase Console](https://console.firebase.google.com)
+2. Create a new App
+3. Click Database and setup a Realtime DB instance 
+    - `droopy-firebase` doesn't do anything with Auth. You can:
+        - Handle auth yourself [using `firebase.auth()`](https://firebase.google.com/docs/auth/web/start)
+        - Configure you Realtime DB to run in "Test Mode" (anonymously accessible)
+4. Go to your Project Settings, click **Add Firebase to your Web App**, and copy out your App's config
+
+![Project Settings](https://res.cloudinary.com/droopytersen/image/upload/q_auto:good/v1524593251/droopy-firebase/droopy-firebase0.png)
+![Project Config](https://res.cloudinary.com/droopytersen/image/upload/q_auto:good/v1524593251/droopy-firebase/droopy-firebase1.png)
+
+
 ## Dynamic Collections
 Even if a collection doesn't exist, you can still reference it on your `db` object (thanks to a javascript proxy)
 ``` javascript
