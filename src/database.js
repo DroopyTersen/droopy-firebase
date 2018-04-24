@@ -2,7 +2,9 @@ var firebase = require("firebase");
 var Collection = require("./collection");
 
 var connect = function(config) {
-    firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+        firebase.initializeApp(config);
+    }
     var db = firebase.database();
 
     var collectionsProxy = new Proxy({}, {
