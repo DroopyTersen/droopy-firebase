@@ -1,6 +1,6 @@
 {
   "name": "droopy-firebase",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "Wrapper around the Firebase SDK to simplify working with collections",
   "main": "lib/database.js",
   "scripts": {
@@ -14,5 +14,13 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0"
-  }
+  },
+  "keywords": [
+    "firebase",
+    "google",
+    "realtime",
+    "database",
+    "nosql",
+    "droopy"
+  ]
 }
