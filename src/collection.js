@@ -16,6 +16,13 @@ Collection.prototype._onAdd = function(handler) {
         .on('child_added', (snapshot) => handler(snapshot.val()))
 }
 
+Collection.prototype.off = function(eventKey) {
+    try {
+        this.db.ref().child(this.name).off(eventKey);
+    } catch(err) {
+        console.log("Unable to unsubscribe to Firebase event");
+    }
+}
 Collection.prototype.on = function(eventKey, handler) {
     let ref = this.db.ref().child(this.name);
     if (eventKey === "add") {
