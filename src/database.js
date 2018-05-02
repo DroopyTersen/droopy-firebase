@@ -6,19 +6,24 @@ var connect = function(config) {
         firebase.initializeApp(config);
     }
     var db = firebase.database();
-
-    var collectionsProxy = new Proxy({}, {
-        get: function(target, name) {
-            if (!(name in target)) {
-                return new Collection(db, name);                    
-            }
-            return target[name];
+    db.collections = name => new Collection(db,name);
+    try {
+        if (window.Proxy) {
+            let collectionsProxy = new Proxy({}, {
+                get: function(target, name) {
+                    if (!(name in target)) {
+                        return new Collection(db, name);                    
+                    }
+                    return target[name];
+                }
+            });
+            collectionsProxy.collections = name => new Collection(db,name);
+            return collectionsProxy;
         }
-    });
-
-    //supports dynamic property names mapping to collections
-    //Example: db.users or db.settings or db.posts
-    return collectionsProxy;
+    } catch(err) {
+        console.log("droopy-firebase: Skipping Proxy. It's not supported by your browser")
+    }
+    return db;
 }
 
 module.exports = { connect, create: connect };
